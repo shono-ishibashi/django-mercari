@@ -20,7 +20,8 @@ class ClosureTreeCategory(models.Model):
         related_name='descendant_category')
     depth = models.IntegerField(blank=True, null=True)
     parent = models.ForeignKey(
-        'self', models.DO_NOTHING, db_column='parent', blank=True, null=True)
+        'self', models.DO_NOTHING, db_column='parent', blank=True, null=True,
+        related_name='parent_category')
 
     class Meta:
         managed = False

@@ -124,7 +124,10 @@
             </tr>
           </tbody>
         </table>
-        <a type="button" class="btn btn-default" href="edit.html"
+        <a
+          type="button"
+          class="btn btn-default"
+          href="{% url 'edit' item.item_id %}"
           ><i class="fa fa-pencil-square-o"></i>&nbsp;edit</a
         >
       </div>
