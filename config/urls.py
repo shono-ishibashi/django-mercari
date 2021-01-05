@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from mercari import apis
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(apis.router.urls)),
-    path('', include('mercari.urls'))
+    path('', include('mercari.urls')),
+    path('api/', include('api.urls')),
+    path('account/', include('account.urls'), name='account'),
 ]

@@ -1,14 +1,12 @@
 {% extends 'base.html' %}
-
 {% load static %}
-
 {% block content %}
-
-    <!-- details -->
     <div id="input-main" class="container">
-        <a type="button" class="btn btn-default" href="{% url 'detail' pk %}"
-        ><i class="fa fa-reply"></i> back</a>
-        <h2>EDIT</h2>
+        <a type="button" class="btn btn-default" href="{% url 'list' %}"
+        ><i class="fa fa-reply"></i> back</a
+        >
+        <h2>Edit</h2>
+
         <!-- edit form -->
         <form action="#" method="POST" class="form-horizontal">
             {% if error %}
@@ -23,5 +21,4 @@
         </form>
     </div>
     <script type="text/javascript" src="{% static 'js/category.js' %}"></script>
-
 {% endblock %}

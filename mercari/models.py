@@ -43,13 +43,3 @@ class Item(models.Model):
     class Meta:
         managed = False
         db_table = 'items'
-
-
-class User(models.Model):
-    user_id = models.AutoField(primary_key=True)
-    mail_address = models.TextField()
-    password = models.TextField()
-
-    class Meta:
-        managed = False
-        db_table = 'users'

@@ -1,16 +1,84 @@
 <div class="pages">
-  <nav class="page-nav">
-    <ul class="pager">
-      {% if page_obj.has_previous %}
-      <li class="previous">
-        <a href="?page={{ page_obj.previous_page_number }}">&larr; prev</a>
-      </li>
-      {% endif %}
-      {% if page_obj.has_next %}
-      <li class="next">
-        <a href="?page={{ page_obj.next_page_number }}">next &rarr;</a>
-      </li>
-      {% endif %}
-    </ul>
-  </nav>
+    <nav class="page-nav">
+        <div class="pager">
+            <div class="col-lg-6">
+                {% if page_obj.has_previous %}
+                    <form action='' method="GET" class="text-left form-inline">
+                        <label></label>
+                        <input
+                                type="hidden"
+                                class="form-control"
+                                name="page"
+                                value="{{ page_obj.previous_page_number }}"
+                        />
+                        {% if form.data.category %}
+                            <input
+                                    type="hidden"
+                                    name="category"
+                                    value="{{ form.data.category }}"
+                            />
+                        {% endif %}
+                        {% if form.data.name %}
+                            <input
+                                    type="hidden"
+                                    name="name"
+                                    value="{{ form.name.value }}"
+                            />
+                        {% endif %}
+                        {% if form.data.brand %}
+                            <input
+                                    type="hidden"
+                                    name="brand"
+                                    value="{{ form.brand.value }}"
+                            />
+                        {% endif %}
+                        <!-- 総ページ数 -->
+                        <button
+                                type="submit"
+                                class="btn btn-primary text-right">&larr; prev
+                        </button>
+                    </form>
+                {% endif %}
+            </div>
+            <div class="col-lg-6">
+                {% if page_obj.has_next %}
+                    <form action='' method="GET" class="text-right form-inline">
+                        <label></label>
+                        <input
+                                type="hidden"
+                                class="form-control"
+                                name="page"
+                                value="{{ page_obj.next_page_number }}"
+                        />
+                        {% if form.data.category %}
+                            <input
+                                    type="hidden"
+                                    name="category"
+                                    value="{{ form.data.category }}"
+                            />
+                        {% endif %}
+                        {% if form.data.name %}
+                            <input
+                                    type="hidden"
+                                    name="name"
+                                    value="{{ form.name.value }}"
+                            />
+                        {% endif %}
+                        {% if form.data.brand %}
+                            <input
+                                    type="hidden"
+                                    name="brand"
+                                    value="{{ form.brand.value }}"
+                            />
+                        {% endif %}
+                        <!-- 総ページ数 -->
+                        <button
+                                type="submit"
+                                class="btn btn-primary text-right">next &rarr;
+                        </button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
 </div>
