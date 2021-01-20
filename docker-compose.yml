@@ -14,10 +14,28 @@ services:
       POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
     restart: always
 
-  web:
-    build: .
+  django:
+    build: /django/
     command: python3 manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
     depends_on:
       - db
+  
+  nginx:
+    container_name: nginx
+    image: nginx:stable
+    volumes:
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./nginx/uwsgi_params:/etc/nginx/uwsgi_params
+      - ./static:/static
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    logging:
+      options:
+        max-size: 5m
+        max-file: "10"
+    networks:
+      - common_link
